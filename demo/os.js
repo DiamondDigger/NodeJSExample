@@ -1,0 +1,16 @@
+const os = require('os')
+
+console.log('Операционная система: ', os.platform())
+console.log('type: ', os.type())
+console.log('release: ', os.release())
+console.log('Архитектура процессора: ', os.arch())
+console.log('Информация о процессоре: ', os.cpus())
+console.log('Свободная память: ', os.freemem())
+console.log('Общий объем памяти: ', os.totalmem())
+console.log('Время в работе: ', os.uptime())
+console.log('Домашная директория: ', os.homedir())
+console.log('Временная директория: ', os.tmpdir())
+console.log('Информация пользователя: ', os.userInfo())
+console.log('Имя хоста: ', os.hostname())
+console.log('Network: ', os.networkInterfaces())
+
