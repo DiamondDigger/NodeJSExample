@@ -30,7 +30,7 @@ class Dispatcher extends EventEmmiter{
 const div = new Dispatcher()
 
 div.subscribe('event', data => {
-    console.log('[event]: ', data)
+    console.log('ON [event]: ', data)
 });
 
 div.dispatch('event', {h:3})
