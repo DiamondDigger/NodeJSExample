@@ -33,13 +33,26 @@ const server = http.createServer((req, res) => {
     console.log(filepath)
 
     let ext = path.extname(filepath)
+    let contentType = 'text/html'
+
+    switch (ext) {
+        case '.css':
+            contentType = 'text/css'
+            break
+        case '.js':
+            contentType = 'text/javascript'
+            break
+        default:
+            contentType = 'text/html'
+    }
 
     if (!ext) {
         filepath += '.html'
     }
+
     fs.readFile(filepath, (err, content) => {
         if (err) {
-            fs.readFile(path.join(__dirname, './public', 'error.html'), (err, data) => {
+            fs.readFile(path.join(__dirname, '../public', 'error.html'), (err, data) => {
                 if (err) {
                     res.writeHead(500)
                     res.end('Error')
@@ -52,7 +65,7 @@ const server = http.createServer((req, res) => {
             })
         } else{
             res.writeHead(200, {
-                'Content-Type': 'text/html'
+                'Content-Type': contentType
             })
             res.end(content)
         }
